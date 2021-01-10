@@ -131,8 +131,8 @@ class ServerController extends Controller
                 return $result;
             }
             $data = (object)[
-                'url' => env('AUTH_HOST', 'localhost:8201').'/api/profile',
-                'method' => 'PUT',
+                'url' => env('AUTH_HOST', 'localhost:8201').'/api/profile/update',
+                'method' => 'POST',
                 'body'=> '{
                     "id": "'.$result['data']['id'].'",
                     "username":"'.$request->username.'"
@@ -156,8 +156,8 @@ class ServerController extends Controller
                 return $result;
             }
             $data = (object)[
-                'url' => env('AUTH_HOST', 'localhost:8201').'/api/profile',
-                'method' => 'PUT',
+                'url' => env('AUTH_HOST', 'localhost:8201').'/api/profile/update',
+                'method' => 'POST',
                 'body'=> '{
                     "id": "'.$result['data']['id'].'",
                     "password":"'.$request->password.'"
@@ -250,8 +250,8 @@ class ServerController extends Controller
                 return $result;
             }
             $data = (object)[
-                'url' => env('TRAN_HOST', 'localhost:8202').'/api/transactions',
-                'method' => 'DELETE',
+                'url' => env('TRAN_HOST', 'localhost:8202').'/api/transactions/delete',
+                'method' => 'POST',
                 'body'=> '{
                     "id_user": "'.$result['data']['id'].'",
                     "id": "'.$request->id.'"
@@ -287,8 +287,8 @@ class ServerController extends Controller
                 "id_parent": "'.$request->parent.'"';
             }
             $data = (object)[
-                'url' => env('TRAN_HOST', 'localhost:8202').'/api/transactions',
-                'method' => 'PUT',
+                'url' => env('TRAN_HOST', 'localhost:8202').'/api/transactions/update',
+                'method' => 'POST',
                 'body'=> '{
                     '.$body.'
                 }'
