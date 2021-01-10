@@ -112,7 +112,7 @@ class ServerController extends Controller
                     "phone":"'.$request->phone.'"
                 }'
             ];
-            return \json_encode($data);
+            // return \json_encode($data);
             $result = $this->sentRequest($data);
             return json_decode($result, true);
         } catch (\Throwable $th) {
