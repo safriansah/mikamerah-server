@@ -103,8 +103,8 @@ class ServerController extends Controller
                 return $result;
             }
             $data = (object)[
-                'url' => env('AUTH_HOST', 'localhost:8201').'/api/profile',
-                'method' => 'PUT',
+                'url' => env('AUTH_HOST', 'localhost:8201').'/api/profile/update',
+                'method' => 'POST',
                 'body'=> '{
                     "id": "'.$result['data']['id'].'",
                     "fullname":"'.$request->fullname.'",
@@ -112,6 +112,7 @@ class ServerController extends Controller
                     "phone":"'.$request->phone.'"
                 }'
             ];
+            return \json_encode($data);
             $result = $this->sentRequest($data);
             return json_decode($result, true);
         } catch (\Throwable $th) {
